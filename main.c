@@ -5,6 +5,20 @@
 #include <time.h>
 #include <ctype.h>
 
+/*O programa utiliza arquivos para armazenar palavras e dicas. As funções abrirArq e fecharArq são responsáveis por lidar com a abertura e fechamento desses arquivos.
+
+A estrutura registro é utilizada para armazenar informações sobre palavras, incluindo um identificador de dica (idDica) e a própria palavra (palavra).
+
+A estrutura dica armazena as dicas associadas às palavras.
+
+O jogo é controlado principalmente pela função jogar(), que sorteia uma palavra, exibe o jogo da forca na tela e permite que o jogador insira letras para adivinhar a palavra.
+
+Outras funções, como adicionarDica(), adicionarPalavra(), sorteio(), pausa(), exibeboneco(), e resultado(), são responsáveis por diferentes partes do jogo, como adicionar dicas, palavras, exibir informações na tela, etc.
+
+O programa utiliza arquivos para armazenar dicas e palavras. A função adicionarDica() permite que o usuário adicione uma nova dica ao arquivo "dicas.fc", e adicionarPalavra() permite adicionar uma nova palavra com sua respectiva dica ao arquivo "palavras.fc".
+
+O código utiliza o conceito de ponteiros para manipulação de arquivos e strings em C.*/
+
 FILE* abrirArq(char nome[], char modo[]); //teve que ser declarado e foi explicado na linha 420
 FILE* fecharArq(FILE *arq); //teve que ser declarado e foi explicado na linha 420
 void adicionarDica();
@@ -16,8 +30,6 @@ void init();
 void exibeboneco();
 void resultado(char palavra[201], bool res);
 void jogar();
-
-
 int numJogadores = 0;
 bool procLetra(char letra, char palavraEdit[201], char *esconde, char palavra[201]);
 
@@ -60,7 +72,7 @@ void exibirCreditos() {
     pausa();
 }
 
-void verRanking() {
+void verRanking() { // Código para ver o ranking
     system("cls");
 
     printf("----- RANKING -----\n");
