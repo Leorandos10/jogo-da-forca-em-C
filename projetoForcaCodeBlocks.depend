@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1700785260 source:c:\users\leofe\onedrive\Área de trabalho\nova pasta\proejto forcas\projetoforcacodeblocks\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+

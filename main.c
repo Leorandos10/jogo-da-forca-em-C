@@ -1,50 +1,3 @@
-!Leorandos10
-leorandos10
-ⓘ User is suspected to be a part of an online terrorist organization. Please report any suspicious activity to Discord staff.
-
-!Leorandos10 — 21/11/2023 15:10
-video 1 pra explicar: https://youtu.be/k385zRwjRCs
-YouTube
-Daniel Oliveira
-Jogo da FORCA em C / C++
-Imagem
-video 2 pra explicar: pra quem entende mais um pouco : https://youtu.be/JYMAid8-aOE
-YouTube
-Ricardo Antonello
-Jogo da forca em Linguagem C: Programação completa
-Imagem
-video 3 pra quem não sabe de literalemente de nada: https://youtu.be/t1uZDc2W8M8?list=PLlUjQffi3XKOI0APGQTKL7NxyejSr7Ea-
-YouTube
-Tuto Studio
-JOGO DA FORCA AULA 1 - INTRODUÇÃO
-Imagem
-recomendo dar uma olhada no video 2, aí a gente bota a mão na massa
-!Leorandos10 — 21/11/2023 15:21
-AS INSTRUÇÕES DO TRABALHO
-Tipo de arquivo em anexo: acrobat
-Projeto_TDA_-_2023.2.pdf
-91.67 KB
-•
-Jogo da Forca
-a)
-Ranking em arquivo;
-b)
-Banco de dados de palavras carregadas do arquivo;
-c)
-Deve haver menu com opções de Jogar, Ver Ranking, Cadastrar Palavras, Créditos e Sair;
-d)
-Utilize array com alocação dinâmica baseado na palavra da vez;
-e)
-Utilize struct para armazenar em memória e depois transferir para arquivo;
-f)
-Controle de jogada deve ser feito utilizando entrada de dados pelo teclado contendo informação da posição e usuário;
-!Leorandos10 — 21/11/2023 15:34
-wallace quer mais parecido com esse
-!Leorandos10 — Hoje às 13:19
-Tipo de arquivo em anexo: archive
-projetoForcaCodeBlocks.zip
-180.98 KB
-!Leorandos10 — Hoje às 19:12
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -63,13 +16,22 @@ void init();
 void exibeboneco();
 void resultado(char palavra[201], bool res);
 void jogar();
+
+
+int numJogadores = 0;
 bool procLetra(char letra, char palavraEdit[201], char *esconde, char palavra[201]);
 
 unsigned int palavraso;
+
 typedef struct registro {
 	unsigned int idDica;
 	unsigned char palavra[201];
 } registro;
+
+typedef struct {
+    char nome[50];
+    int pontuacao;
+} Jogador;
 
 typedef struct dica {
 	unsigned char dica[201];
@@ -89,109 +51,31 @@ void init() { //abrindo os arquivos contendo as Dicas e as Palavras
 	temp=fecharArq(temp);
 }
 
-void menu() {
-	char opt;
-	do {
-		system("cls");
-		printf("\n\tÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»");
-		printf("\n\tº					º");
-		printf("\n\tº		JOGO DA FORCA		º");
-		printf("\n\tº					º");
-		printf("\n\tÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹");
-		printf("\n\tº					º");
-		printf("\n\tº	[1] - INICIAR JOGO		º");
-		printf("\n\tº	[2] - ADICIONAR DICA		º");
-		printf("\n\tº	[3] - ADICIONAR PALAVRA		º");
-		printf("\n\tº	[4] - SAIR			º");
-		printf("\n\tº					º");
-		printf("\n\tÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼");
-		printf("\n\tDigite o numero de uma das opcoes:");
-		fflush(stdin);
-		scanf("%c",&opt);
-		if(opt=='1') {
-			jogar();
-		} else if(opt=='2') {
-			adicionarDica();
-		} else if(opt=='3') {
-			adicionarPalavra();
-		}
-	} while(opt!='4');
+void exibirCreditos() {
+    // Código para exibir os créditos
+    system("cls");
+    printf("\n\tCREDITOS:\n");
+    printf("\tESSE JOGO FOI DESENVOLVIDO POR CAIO LIMA E LEONARDO FELIPE\n");
+    printf("\tDATA DE CRIACAO: 21-23/11/2023: [Data].\n");
+    pausa();
 }
 
-void jogar() {
-	registro guarda;
-	int i;
-	int j;
-	int tamanho=0;
-	int qtdErro=0;
-	bool fim=false;
-	bool ganhou=false;
-	bool achou=false;
-	unsigned char letra;
-	unsigned char letDig[100]= {'\0'};
-	unsigned char palavraEdit[201];
-	unsigned char esconde[201];
+void verRanking() {
+    system("cls");
 
-	dica gua;
-	FILE *arq;
-	sorteio();
-	arq=abrirArq("palavras.fc","r");
-	fseek(arq,sizeof(guarda)*palavraso,SEEK_SET);
-	fread(&guarda,sizeof(guarda),1,arq);
-	arq=fecharArq(arq);
-	arq=abrirArq("dicas.fc","r");
-	fseek(arq,sizeof(gua)*guarda.idDica,SEEK_SET);
-	fread(&gua,sizeof(gua),1,arq);
-	arq=fecharArq(arq);
-	for(i=0; i<strlen(guarda.palavra); i++) {
-		if( guarda.palavra[i]==181 || guarda.palavra[i]==183 || guarda.palavra[i]==199 ||  guarda.palavra[i]==182 || guarda.palavra[i]==142) {
-... (336 linhas)
-Recolher
-message.txt
-12 KB
-﻿
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-#include <time.h>
-#include <ctype.h>
+    printf("----- RANKING -----\n");
 
-FILE* abrirArq(char nome[], char modo[]); //teve que ser declarado e foi explicado na linha 420
-FILE* fecharArq(FILE *arq); //teve que ser declarado e foi explicado na linha 420
-void adicionarDica();
-void adicionarPalavra();
-void sorteio();
-void pausa();
-void menu();
-void init();
-void exibeboneco();
-void resultado(char palavra[201], bool res);
-void jogar();
-bool procLetra(char letra, char palavraEdit[201], char *esconde, char palavra[201]);
+    if (numJogadores == 0) {
+        printf("Nenhum jogador no ranking.\n");
+    } else {
+        printf("%-20s%-10s\n", "Nome", "Pontuacao");
 
-unsigned int palavraso;
-typedef struct registro {
-	unsigned int idDica;
-	unsigned char palavra[201];
-} registro;
+        for (int i = 0; i < numJogadores; i++) {
 
-typedef struct dica {
-	unsigned char dica[201];
-} dica;
+        }
+    }
 
-int main() {
-	init();
-	menu();
-	return 0;
-}
-
-void init() { //abrindo os arquivos contendo as Dicas e as Palavras
-	FILE *temp;
-	temp=abrirArq("dicas.fc","a");
-	temp=fecharArq(temp);
-	temp=abrirArq("palavras.fc","a");
-	temp=fecharArq(temp);
+    pausa();
 }
 
 void menu() {
@@ -207,20 +91,28 @@ void menu() {
 		printf("\n\tº	[1] - INICIAR JOGO		º");
 		printf("\n\tº	[2] - ADICIONAR DICA		º");
 		printf("\n\tº	[3] - ADICIONAR PALAVRA		º");
-		printf("\n\tº	[4] - SAIR			º");
+		printf("\n\tº	[4] - CREDITOS            º");
+        printf("\n\tº	[5] - RANKING			º");
+		printf("\n\tº	[6] - SAIR			º");
 		printf("\n\tº					º");
 		printf("\n\tÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼");
 		printf("\n\tDigite o numero de uma das opcoes:");
 		fflush(stdin);
 		scanf("%c",&opt);
+
 		if(opt=='1') {
 			jogar();
 		} else if(opt=='2') {
 			adicionarDica();
 		} else if(opt=='3') {
 			adicionarPalavra();
+		} else if(opt=='4') {
+			exibirCreditos();
+		} else if(opt=='5') {
+			verRanking();
 		}
-	} while(opt!='4');
+
+	} while(opt!='6');
 }
 
 void jogar() {
@@ -355,9 +247,9 @@ void exibeboneco(int membros) {
 	switch(membros) {
 	case 1:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ");
 		printf("\nÛ");
 		printf("\nÛ");
@@ -368,9 +260,9 @@ void exibeboneco(int membros) {
 		break;
 	case 2:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ           |");
 		printf("\nÛ           |");
 		printf("\nÛ           |");
@@ -381,9 +273,9 @@ void exibeboneco(int membros) {
 		break;
 	case 3:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ          /|");
 		printf("\nÛ         / |");
 		printf("\nÛ           |");
@@ -394,9 +286,9 @@ void exibeboneco(int membros) {
 		break;
 	case 4:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ          /|\\");
 		printf("\nÛ         / | \\");
 		printf("\nÛ           |");
@@ -407,9 +299,9 @@ void exibeboneco(int membros) {
 		break;
 	case 5:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ          /|\\");
 		printf("\nÛ         / | \\");
 		printf("\nÛ           |");
@@ -420,9 +312,9 @@ void exibeboneco(int membros) {
 		break;
 	case 6:
 		printf("\nÛßßßßßßßßßßßß");
-		printf("\nÛ          ***");
-		printf("\nÛ         *   *");
-		printf("\nÛ          ***");
+		printf("\nÛ          ###");
+		printf("\nÛ         #   #");
+		printf("\nÛ          ###");
 		printf("\nÛ          /|\\");
 		printf("\nÛ         / | \\");
 		printf("\nÛ           |");
@@ -585,5 +477,3 @@ FILE* fecharArq(FILE *arq) {
 	fclose(arq);
 	return arq;
 }
-message.txt
-12 KB
